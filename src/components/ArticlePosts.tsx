@@ -1,8 +1,9 @@
+import { Post } from "@/lib/types/type";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
 import React from "react";
 
-export default function ArticlePosts({ post }) {
+export default function ArticlePosts({ post }: { post: Post }) {
   return (
     <>
       {/* 카테고리 표시 */}

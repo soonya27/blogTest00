@@ -1,6 +1,7 @@
 import { getPosts } from "@/lib/api/post";
 import React from "react";
 import ArticlePosts from "./ArticlePosts";
+import { Post } from "@/lib/types/type";
 
 export default async function Main() {
   const posts = await getPosts();
@@ -23,7 +24,7 @@ export default async function Main() {
 
         {/* 게시글 목록 */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {posts.map((post) => (
+          {posts.map((post: Post) => (
             <>
               <ArticlePosts key={post._id} post={post} />
             </>
