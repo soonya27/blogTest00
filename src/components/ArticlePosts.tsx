@@ -1,13 +1,15 @@
 import { Post } from "@/lib/types/type";
-import { PortableText } from "next-sanity";
+import { Grid, ImageListItem } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 export default function ArticlePosts({ post }: { post: Post }) {
+  console.log(post);
   return (
     <>
       {/* 카테고리 표시 */}
-      <div className="mt-4 flex flex-wrap gap-2">
+      {/* <div className="mt-4 flex flex-wrap gap-2">
         {post.categories &&
           post.categories.map((category) => (
             <Link href={`/category/${category._id}`} key={category.slug}>
@@ -26,7 +28,17 @@ export default function ArticlePosts({ post }: { post: Post }) {
           },
         }}
       />
-      <small className="text-gray-500">{new Date(post.publishedAt).toLocaleDateString()}</small>
+      <small className="text-gray-500">{new Date(post.publishedAt).toLocaleDateString()}</small> */}
+      {post.mainImage && (
+        <Grid key={post._id} size={{ sm: 3, md: 1, xl: 3 }}>
+          <img
+            srcSet={`${post.mainImage?.asset.url}`} //
+            src={`${post.mainImage?.asset.url}`}
+            alt={post.title}
+            loading="lazy"
+          />
+        </Grid>
+      )}
     </>
   );
 }

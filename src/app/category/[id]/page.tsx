@@ -8,9 +8,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
   return (
     <div>
       {posts.map((post: Post) => (
-        <>
-          <ArticlePosts key={post._id} post={post} />
-        </>
+        <ArticlePosts key={post._id} post={post} />
       ))}
     </div>
   );
